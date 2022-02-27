@@ -1,22 +1,3 @@
-Flows:
+## SecureCredentials
 
-1. Adding new credentials
-    1. Set the passphrase
-    2. Set credentials name (required), username, password, note
-        var passPhrase = "some pass phrase"
-
-        var name = "github";
-        var username = "alexc";
-        var password = "hardmond";
-        var notes = "this is a note";
-
-        var encryptedName = CryptoJS.AES.encrypt(name, passPhrase).toString();
-        var encryptedUsername = CryptoJS.AES.encrypt(username, passPhrase).toString();
-        var encryptedPassword = CryptoJS.AES.encrypt(password, passPhrase).toString();
-        var encryptedNote = CryptoJS.AES.encrypt(notes, passPhrase).toString();
-
-
-    3. Save credentials in the vault:
-        addNewCredentials(encryptedName, encryptedUsername, encryptedPassword, encryptedNote)
-
-        vault[address][encryptedName] = Credentials(encryptedName, encryptedUsername, encryptedPassword, encryptedNote)
+This is a simple smart contract that acts as a password manager and allows to store user credentials (usernames and passwords). The main focus of this project is to build a CI/CD system around the app on Ethereum blockchain, that includes automated testing, Solidity code coverage reporting, gas monitoring, overall system monitoring and alerting. The logic of the app itself is not a priority and it is never going to be used on Ethereum mainnet.  

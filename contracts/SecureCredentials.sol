@@ -11,7 +11,7 @@ contract SecureCredentials is Ownable {
         string note;
     }
 
-    mapping(address => Credentials[]) vault;
+    mapping(address => Credentials[]) private vault;
 
     function addCredentials(
         string memory _name,
@@ -35,7 +35,7 @@ contract SecureCredentials is Ownable {
         string memory _newPassword,
         string memory _newNote
     ) external {
-        require(bytes(_currentName).length != 0, "ERROR: credentials name is required");
+        require(bytes(_currentName).length != 0, "ERROR: current credentials name is required");
         require(bytes(_newName).length != 0, "ERROR: credentials new name is required");
         require(bytes(_newUsername).length != 0, "ERROR: credentials new username is required");
         require(bytes(_newPassword).length != 0, "ERROR: credentials new password is required");
@@ -74,10 +74,10 @@ contract SecureCredentials is Ownable {
             }
         }
 
-        if (found) {
-            credentials[foundAt] = credentials[credentials.length-1];
-            credentials.pop();
-        }
+        require(found, "ERROR: credentials with specified name was not found");
+
+        credentials[foundAt] = credentials[credentials.length - 1];
+        credentials.pop();
     }
 
     function getCredentials() external view returns (Credentials[] memory) {

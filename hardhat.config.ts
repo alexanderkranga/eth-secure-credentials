@@ -13,6 +13,7 @@ import "@nomiclabs/hardhat-waffle";
 
 import "hardhat-gas-reporter";
 import "@nomiclabs/hardhat-etherscan";
+import "solidity-coverage";
 
 const chainIds = {
   ganache: 1337,
@@ -75,11 +76,11 @@ const config: HardhatUserConfig = {
       }
     ],
   },
-  // gasReporter: {
-  //   currency: "USD",
-  //   gasPrice: 100,
-  //   // enabled: process.env.REPORT_GAS ? true : false,
-  // },
+  gasReporter: {
+    currency: "USD",
+    gasPrice: 100,
+    // enabled: process.env.REPORT_GAS ? true : false,
+  },
   typechain: {
     outDir: "typechain",
     target: "ethers-v5",

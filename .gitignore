@@ -2,7 +2,15 @@ node_modules
 
 #Hardhat files
 cache
-artifacts
-factories
+**/artifacts
+**/coverage
+coverage.json
 
 .env
+
+typechain/*
+!typechain/SecureCredentials.ts
+typechain/factories/*
+!typechain/factories
+!typechain/factories/SecureCredentials__factory.ts
+
